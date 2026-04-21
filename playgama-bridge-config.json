@@ -1,0 +1,109 @@
+{
+    "$schema": "https://bridge.playgama.com/v1/stable/schema.json",
+    "advertisement": {
+        "interstitial": {
+            "preloadOnStart": true
+        },
+        "rewarded": {
+            "preloadOnStart": true
+        },
+        "useBuiltInErrorPopup": true,
+        "backfillId": ""
+    },
+    "payments": [ {
+            "id": "1",
+            "playgama": {
+                "amount": 50
+            },
+            "playdeck": {
+                "amount": 50,
+                "description": "Cover (permanent item)"
+            }
+        },
+        {
+            "id": "2",
+            "playgama": {
+                "amount": 50
+            },
+            "playdeck": {
+                "amount": 50,
+                "description": "Hand (permanent item)"
+            }
+        },
+        {
+            "id": "3",
+            "playgama": {
+                "amount": 50
+            },
+            "playdeck": {
+                "amount": 50,
+                "description": "Fish (permanent item)"
+            }
+        },
+        {
+            "id": "4",
+            "playgama": {
+                "amount": 50
+            },
+            "playdeck": {
+                "amount": 50,
+                "description": "Paper"
+            }
+        },
+        {
+            "id": "5",
+            "playgama": {
+                "amount": 25
+            },
+            "playdeck": {
+                "amount": 25,
+                "description": "Jump"
+            }
+        },
+        {
+            "id": "6",
+            "playgama": {
+                "amount": 25
+            },
+            "playdeck": {
+                "amount": 25,
+                "description": "Speed"
+            }
+        },
+        {
+            "id": "7",
+            "playgama": {
+                "amount": 25
+            },
+            "playdeck": {
+                "amount": 25,
+                "description": "20K"
+            }
+        },
+        {
+            "id": "8",
+            "playgama": {
+                "amount": 75
+            },
+            "playdeck": {
+                "amount": 75,
+                "description": "100K"
+            }
+        },
+        {
+            "id": "9",
+            "playgama": {
+                "amount": 50
+            },
+            "playdeck": {
+                "amount": 50,
+                "description": "NoAds"
+            }
+        }],
+    "leaderboards": [
+        {
+            "id": "brainrot_leaderboard"
+        }
+    ],
+    "sendAnalyticsEvents": true
+}
