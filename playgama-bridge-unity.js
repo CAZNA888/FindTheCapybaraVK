@@ -135,14 +135,14 @@ function initializeBridge() {
             bridge.platform.on('pause_state_changed', isPaused => sendMessageToUnity('OnPauseStateChanged', isPaused.toString()))
 
             let unityLoader = document.createElement('script')
-            unityLoader.src = 'Build/31785b0a9c87fee02b8f5c7f9d1dd0b6.loader.js'
+            unityLoader.src = 'Build/FindTheCapybara.loader.js'
             unityLoader.onload = () => {
                 createUnityInstance(
                     CANVAS,
                     {
-                        dataUrl: 'Build/241aaf1163a2646d7b1cde3c0e940123.data.unityweb',
-                        frameworkUrl: 'Build/57b9106ba73854283ac9355ceb293c19.framework.js.unityweb',
-                        codeUrl: 'Build/ef332df240e78993faffc8a7cc08926f.wasm.unityweb',
+                        dataUrl: 'Build/FindTheCapybara.data.unityweb',
+                        frameworkUrl: 'Build/FindTheCapybara.framework.js.unityweb',
+                        codeUrl: 'Build/FindTheCapybara.wasm.unityweb',
                         streamingAssetsUrl: 'StreamingAssets',
                         companyName: 'AltTab3000',
                         productName: 'Obby Hug Tower Yandex Games',
