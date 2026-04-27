@@ -5,9 +5,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Obby Hug Tower Yandex Games</title>
         <link rel="preconnect" href="https://bridge.playgama.com">
-        <link rel="preload" href="Build/FindTheCapybara.wasm.unityweb" as="fetch" type="application/wasm" crossorigin>
-        <link rel="preload" href="Build/FindTheCapybara.data.unityweb" as="fetch" crossorigin>
-        <link rel="preload" href="Build/FindTheCapybara.framework.js.unityweb" as="script">
+        <link rel="preload" href="Build/Parcour.wasm.unityweb" as="fetch" type="application/wasm" crossorigin>
+        <link rel="preload" href="Build/Parcour.data.unityweb" as="fetch" crossorigin>
+        <link rel="preload" href="Build/Parcour.framework.js.unityweb" as="script">
         <style>
             html, body {
                 width: 100%;
@@ -23,9 +23,43 @@
                 top: 0px;
                 left: 0px;
             }
+            .pre-playgama-loader {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                width: 180px;
+                height: 6px;
+                overflow: hidden;
+                background: rgba(128, 68, 255, 0.2);
+                border-radius: 999px;
+                transform: translate(-50%, -50%);
+                z-index: 10;
+                pointer-events: none;
+            }
+            .pre-playgama-loader.hidden {
+                display: none;
+            }
+            .pre-playgama-loader::before {
+                content: "";
+                display: block;
+                width: 45%;
+                height: 100%;
+                background: #8c4dff;
+                border-radius: inherit;
+                animation: pre-playgama-loading 1s ease-in-out infinite;
+            }
+            @keyframes pre-playgama-loading {
+                0% {
+                    transform: translateX(-110%);
+                }
+                100% {
+                    transform: translateX(235%);
+                }
+            }
         </style>
     </head>
     <body>
+        <div id="pre-playgama-loader" class="pre-playgama-loader"></div>
         <canvas id="canvas" class="fullscreen-canvas"></canvas>
         <script src="./playgama-bridge-unity.js"></script>
     </body>

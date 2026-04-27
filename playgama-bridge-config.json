@@ -10,7 +10,8 @@
         "useBuiltInErrorPopup": true,
         "backfillId": ""
     },
-    "payments": [ {
+    "payments": [
+        {
             "id": "1",
             "playgama": {
                 "amount": 50
@@ -99,7 +100,8 @@
                 "amount": 50,
                 "description": "NoAds"
             }
-        }],
+        }
+    ],
     "leaderboards": [
         {
             "id": "brainrot_leaderboard"

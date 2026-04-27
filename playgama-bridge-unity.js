@@ -127,6 +127,7 @@ function initializeBridge() {
         .initialize()
         .then(() => {
             bridge.game.setLoadingProgress(0)
+            document.getElementById('pre-playgama-loader')?.classList.add('hidden')
             bridge.advertisement.on('banner_state_changed', state => sendMessageToUnity('OnBannerStateChanged', state))
             bridge.advertisement.on('interstitial_state_changed', state => sendMessageToUnity('OnInterstitialStateChanged', state))
             bridge.advertisement.on('rewarded_state_changed', state => sendMessageToUnity('OnRewardedStateChanged', state))
@@ -135,14 +136,14 @@ function initializeBridge() {
             bridge.platform.on('pause_state_changed', isPaused => sendMessageToUnity('OnPauseStateChanged', isPaused.toString()))
 
             let unityLoader = document.createElement('script')
-            unityLoader.src = 'Build/FindTheCapybara.loader.js'
+            unityLoader.src = 'Build/Parcour.loader.js'
             unityLoader.onload = () => {
                 createUnityInstance(
                     CANVAS,
                     {
-                        dataUrl: 'Build/FindTheCapybara.data.unityweb',
-                        frameworkUrl: 'Build/FindTheCapybara.framework.js.unityweb',
-                        codeUrl: 'Build/FindTheCapybara.wasm.unityweb',
+                        dataUrl: 'Build/Parcour.data.unityweb',
+                        frameworkUrl: 'Build/Parcour.framework.js.unityweb',
+                        codeUrl: 'Build/Parcour.wasm.unityweb',
                         streamingAssetsUrl: 'StreamingAssets',
                         companyName: 'AltTab3000',
                         productName: 'Obby Hug Tower Yandex Games',
