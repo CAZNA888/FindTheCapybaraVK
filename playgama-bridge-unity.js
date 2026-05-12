@@ -136,14 +136,14 @@ function initializeBridge() {
             bridge.platform.on('pause_state_changed', isPaused => sendMessageToUnity('OnPauseStateChanged', isPaused.toString()))
 
             let unityLoader = document.createElement('script')
-            unityLoader.src = 'Build/Parcour.loader.js'
+            unityLoader.src = 'Build/ParcourVk.loader.js'
             unityLoader.onload = () => {
                 createUnityInstance(
                     CANVAS,
                     {
-                        dataUrl: 'Build/Parcour.data.unityweb',
-                        frameworkUrl: 'Build/Parcour.framework.js.unityweb',
-                        codeUrl: 'Build/Parcour.wasm.unityweb',
+                        dataUrl: 'Build/ParcourVk.data.unityweb',
+                        frameworkUrl: 'Build/ParcourVk.framework.js.unityweb',
+                        codeUrl: 'Build/ParcourVk.wasm.unityweb',
                         streamingAssetsUrl: 'StreamingAssets',
                         companyName: 'AltTab3000',
                         productName: 'Obby Hug Tower Yandex Games',
