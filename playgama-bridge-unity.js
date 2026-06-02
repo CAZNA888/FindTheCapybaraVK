@@ -135,15 +135,78 @@ function initializeBridge() {
             bridge.platform.on('audio_state_changed', isEnabled => sendMessageToUnity('OnAudioStateChanged', isEnabled.toString()))
             bridge.platform.on('pause_state_changed', isPaused => sendMessageToUnity('OnPauseStateChanged', isPaused.toString()))
 
+            // DOM fallback для платформ без VK Bridge
+            var _lastHiddenTime = 0;
+            var _visibleTimeout = null;
+
+            function sendHidden() {
+                if (_visibleTimeout) {
+                    clearTimeout(_visibleTimeout);
+                    _visibleTimeout = null;
+                }
+                _lastHiddenTime = Date.now();
+                sendMessageToUnity('OnVisibilityStateChanged', 'hidden');
+            }
+
+            function sendVisibleDelayed() {
+                if (typeof document !== 'undefined' && document.hidden) return;
+
+                if (_visibleTimeout) {
+                    clearTimeout(_visibleTimeout);
+                    _visibleTimeout = null;
+                }
+                if (Date.now() - _lastHiddenTime < 500) {
+                    _visibleTimeout = setTimeout(function() {
+                        sendMessageToUnity('OnVisibilityStateChanged', 'visible');
+                        _visibleTimeout = null;
+                    }, 300);
+                } else {
+                    sendMessageToUnity('OnVisibilityStateChanged', 'visible');
+                }
+            }
+
+            function onViewHide() { sendHidden(); }
+            function onViewShow() { sendVisibleDelayed(); }
+
+            if (typeof document !== 'undefined') {
+                document.addEventListener('visibilitychange', function () {
+                    if (document.hidden) {
+                        sendHidden();
+                    } else {
+                        sendVisibleDelayed();
+                    }
+                });
+                document.addEventListener('webkitvisibilitychange', function () {
+                    if (document.webkitHidden) {
+                        sendHidden();
+                    } else {
+                        sendVisibleDelayed();
+                    }
+                });
+            }
+            window.addEventListener('pagehide', onViewHide)
+            window.addEventListener('pageshow', onViewShow)
+            window.addEventListener('blur', onViewHide)
+            window.addEventListener('focus', onViewShow)
+
+            if (typeof document !== 'undefined') {
+                document.addEventListener('freeze', function() {
+                    sendHidden();
+                });
+                document.addEventListener('resume', function() {
+                    sendVisibleDelayed();
+                });
+            }
+
             let unityLoader = document.createElement('script')
             unityLoader.src = 'Build/cee3bfd5589651a8b16e2a12b8abe5b3.loader.js'
             unityLoader.onload = () => {
                 createUnityInstance(
                     CANVAS,
                     {
-                        dataUrl: 'Build/ecf2b7490468b6f5527f1f694b8e0f93.data.unityweb',
-                        frameworkUrl: 'Build/424e2057fe02d6d40ea0e772ced1860a.framework.js.unityweb',
-                        codeUrl: 'Build/d353382d248b0f44b103b0c06db9d1d9.wasm.unityweb',
+                        dataUrl: 'Build/0ca15cd43b129cfc6e11d6db1d65f02f.data.unityweb',
+                        frameworkUrl: 'Build/a4eeb0716d678677c2219dc9f7df31df.framework.js.unityweb',
+                        codeUrl: 'Build/6d32d4dfa9fe7b2b0e58658b4916cfe2.wasm.unityweb',
                         streamingAssetsUrl: 'StreamingAssets',
                         companyName: 'AltTab3000',
                         productName: 'Obby Hug Tower Yandex Games',
