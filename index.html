@@ -3,11 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="mobile-web-app-capable" content="yes">
         <title>Obby Hug Tower Yandex Games</title>
         <link rel="preconnect" href="https://bridge.playgama.com">
-        <link rel="preload" href="Build/ParcourVk.wasm.unityweb" as="fetch" type="application/wasm" crossorigin>
-        <link rel="preload" href="Build/ParcourVk.data.unityweb" as="fetch" crossorigin>
-        <link rel="preload" href="Build/ParcourVk.framework.js.unityweb" as="script">
+        <link rel="preload" href="Build/d353382d248b0f44b103b0c06db9d1d9.wasm.unityweb" as="fetch" type="application/wasm" crossorigin>
+        <link rel="preload" href="Build/ecf2b7490468b6f5527f1f694b8e0f93.data.unityweb" as="fetch" crossorigin>
+        <link rel="preload" href="Build/424e2057fe02d6d40ea0e772ced1860a.framework.js.unityweb" as="script">
         <style>
             html, body {
                 width: 100%;
@@ -18,10 +22,11 @@
             .fullscreen-canvas {
                 background: #242424;
                 width: 100%;
-                height: 100%;
+                height: 100dvh;
                 position: absolute;
                 top: 0px;
                 left: 0px;
+                touch-action: none;
             }
             .pre-playgama-loader {
                 position: fixed;
@@ -61,6 +66,6 @@
     <body>
         <div id="pre-playgama-loader" class="pre-playgama-loader"></div>
         <canvas id="canvas" class="fullscreen-canvas"></canvas>
-        <script src="./playgama-bridge-unity.js"></script>
+        <script src="./Sender.js"></script>
     </body>
 </html>
