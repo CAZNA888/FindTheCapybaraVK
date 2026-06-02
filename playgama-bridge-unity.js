@@ -204,9 +204,9 @@ function initializeBridge() {
                 createUnityInstance(
                     CANVAS,
                     {
-                        dataUrl: 'Build/e342106d2103fc27cdd093142a478cd6.data.unityweb',
+                        dataUrl: 'Build/ee93bb1c00c67f39d3ac934c95e7f401.data.unityweb',
                         frameworkUrl: 'Build/db03dedc5877f48a92a269b084fdbf10.framework.js.unityweb',
-                        codeUrl: 'Build/bc0149c1ccca0905169346a95aae1789.wasm.unityweb',
+                        codeUrl: 'Build/29f40cbf1ccfc1f2b011507ed76a4ed2.wasm.unityweb',
                         streamingAssetsUrl: 'StreamingAssets',
                         companyName: 'AltTab3000',
                         productName: 'Obby Hug Tower Yandex Games',
